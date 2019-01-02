@@ -38,3 +38,15 @@ def build_job(name, parameters, is_stable)
   }
   return job
 }
+
+def buildJobAndNotify(job, parameters=[], propagate=true, wait=true, email="rhv-qe-devops@redhat.com"){
+  echo "Build url: ${env.BUILD_URL}"
+  def production = env.NODE_NAME.contains('production')
+  echo "production: ${production}"
+  echo "Is variable visible in this scope: ${is_visible}"
+  try{
+    build job: job, parameters: parameters, propagate=propagate, wait=wait, email=email
+  } catch(e){
+    // do what you need, call the function for notifying and sending email and reraise exception
+  }
+}
