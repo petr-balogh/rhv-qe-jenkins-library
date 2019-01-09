@@ -1,6 +1,6 @@
 def send_notification(subject, mail_body, version){
   mail subject: subject, \
-    to: "rhevm-qe-automation", \
+    to: "pbalogh", \
     body: """
     Hi,
 
@@ -13,7 +13,7 @@ def send_notification(subject, mail_body, version){
 
 def send_notification_infra(subject, mail_body, version){
   mail subject: subject, \
-    to: "rhev-qe-infra", \
+    to: "pbalogh", \
     body: """
     Hi infra-team,
 
